@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const API_BASE = "basic-todo-app.up.railway.app/api/todos";
+const API_BASE = "https://basic-todo-app.up.railway.app/api/todos";
 function App() {
   const [todos, setTodos] = useState([]);
   const [popupActive, setPopupActive] = useState(false);
