@@ -5,18 +5,16 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [popupActive, setPopupActive] = useState(false);
   const [newTodo, setNewTodo] = useState("");
-
-  useEffect(() => {
-    GetTodos();
-    console.log(todos);
-  }, []);
-
   const GetTodos = () => {
     fetch(API_BASE + "/allTodos")
       .then((res) => res.json())
       .then((data) => setTodos(data))
       .catch((err) => console.log(err));
   };
+  useEffect(() => {
+    GetTodos();
+  }, []);
+
   const completeTodo = async (id) => {
     const data = await fetch(API_BASE + "/completeTodo/" + id).then((res) =>
       res.json()
